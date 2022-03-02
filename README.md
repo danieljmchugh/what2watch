@@ -22,6 +22,5 @@ WHAT2WATCH is a personal project of mine to help develope full stack shenanigans
 - Randomly recommend movie
 
 ## TODOs:
-- [x] START WORKING
-- [] Finish technologies list
-
+- [x] START 
+- [ ] Finish technologies list
