@@ -4,13 +4,14 @@ https://www.youtube.com/watch?v=VfGW0Qiy2I0
 
 # Technologies
 Possible Tech stacks:
-    - LAMP
+    - LAMP <-- going for this!
+        - Linux, Apache, MySql and Python (not PHP)
     - MEAN
     - Checkout: https://stackshare.io/stacks
 
 note: most these choosen due to popularity
 
-Frontend:
+- Frontend:
     - Will be on web (maybe mobile later)
     - Client-side language: Typescript (type system on top of JS for scaling)
     - UI framework: REACT
@@ -24,13 +25,14 @@ Frontend:
     - PostCSS
     - Module Bunldler: WEBPACK
 
-Backend:
+- Backend:
     - Database: mySQL
     - Database#2: Redis caching layer 
 
-Serverside (runtime):
+- Serverside (runtime):
     - choose whichever:
         - Flask/django
-        - Ruby on tails
-    - REST api
+        - Ruby on rails
+    - follow RESTful api convention
+    - SPA-style website
 
