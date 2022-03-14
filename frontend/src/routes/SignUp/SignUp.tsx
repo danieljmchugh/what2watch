@@ -31,13 +31,15 @@ const SignUp = () => {
                     onChange={({ target }) => setEmail(target.value)}
                 />
                 Re-enter email
-                <input type="email" 
+                <input 
+                    type="email" 
                     placeholder="re-enter email"
                     value={emailRepeat}
                     onChange={({ target }) => setEmailRepeat(target.value)}
                 />
                 Password
-                <input type="password" 
+                <input 
+                    type="password" 
                     placeholder="password"
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}

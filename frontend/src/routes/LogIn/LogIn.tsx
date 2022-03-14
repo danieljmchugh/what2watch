@@ -15,16 +15,15 @@ const LogIn = () => {
             <h1>Log In</h1>
             <form onSubmit={handleLogin}>
                 <input 
-                    type="email" 
-                    name="email"
+                    type="email"
                     placeholder="email"
                     autoFocus
                     value={email}
                     onChange={({ target }) => setEmail(target.value)}
                 />
                 
-                <input type="password" 
-                    name="password"
+                <input 
+                    type="password"
                     placeholder="password"
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
