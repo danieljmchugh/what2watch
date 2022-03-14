@@ -1,8 +1,9 @@
-import Footer from '../../components/Footer/Footer'
-
 const Home = () => {
     return (
-        <Footer />
+        <>
+            <h1>Welcome to WHAT2WATCH</h1>
+
+        </>
     );
 }
 
