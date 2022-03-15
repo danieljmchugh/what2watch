@@ -29,34 +29,17 @@ const Home = () => {
             })
     }
 
-
-    
-
     useEffect(fetchRandomMovie, []);
-
     
-    // TODO: Find better way of doing this...
-    if (movie) {
-        return (
-            <>
-                <h1>Welcome to WHAT2WATCH</h1>
-                <h2>Here is a randome movie!</h2>
-                
-                <h3>{movie}</h3>
-                <img src={`https://image.tmdb.org/t/p/w185${moviePoster}`}></img>
-                
-            </>
-        );
-    }
-    else {
-        return (
-            <>
-                <h1>Welcome to WHAT2WATCH</h1>
-                <h2>Here is a randome movie!</h2>
-                <pre>loading...</pre>
-            </>
-        );
-    }
+    return (
+        <>
+            <h1>Welcome to WHAT2WATCH</h1>
+            <h2>Here is a randome movie!</h2>
+            
+            <h3>{movie}</h3>
+            <img src={`https://image.tmdb.org/t/p/w185${moviePoster}`}></img>
+        </>
+    );
 }
 
 
