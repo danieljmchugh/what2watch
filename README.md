@@ -18,7 +18,10 @@ site will be added as it is developed.
     -   database: mySQL
     -   Server side:
         -   TBD: node.js, flask, etc.
-        -   (prob depend on how much i enjoy making the frontend)
+        -   Node.js for now as i am follwing the fullstack course at:
+            https://fullstackopen.com/en/
+        -   (HOWEVER: i do kinda wanna tryout flask, so we will see down the
+            line)
 
 ## Website design ideas:
 
@@ -29,5 +32,14 @@ site will be added as it is developed.
 
 ## TODOs:
 
--   [x] START
--   [ ] Finish technologies list
+-   General:
+    -   [x] START
+    -   [ ] Finish technologies list
+-   Frontend
+    -   [x] Sort general project structure
+    -   [x] Create skeletal home,login and signup
+    -   [x] Mess around with tMDB api
+    -   [ ] Start work on adding styles to the components
+    -   [ ] Update components to function with skeletal backend
+-   Backend
+    -   [ ] Create skeletal project structure
