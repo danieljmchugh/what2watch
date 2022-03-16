@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from "../api/API_KEY.json";
+import API_KEY from "./API_KEY.json";
 
 const api_key = API_KEY.key;
 

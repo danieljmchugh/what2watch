@@ -22,7 +22,6 @@ const SignUp = () => {
         <>
             <h1>Sign Up</h1>
             <form onSubmit={handleSignup}>
-                Email
                 <input 
                     type="email" 
                     placeholder="email"
@@ -30,14 +29,12 @@ const SignUp = () => {
                     value={email}
                     onChange={({ target }) => setEmail(target.value)}
                 />
-                Re-enter email
                 <input 
                     type="email" 
                     placeholder="re-enter email"
                     value={emailRepeat}
                     onChange={({ target }) => setEmailRepeat(target.value)}
                 />
-                Password
                 <input 
                     type="password" 
                     placeholder="password"
