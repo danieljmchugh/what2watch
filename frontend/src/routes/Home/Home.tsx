@@ -1,53 +1,29 @@
-import { Suspense, useEffect, useState } from "react";
-import axios from 'axios';
-import MovieList from "../../components/MovieList/MovieList";
+import { useEffect, useState } from "react";
 
-import API_KEY from "../../api/API_KEY.json";
+import MovieList from "../../components/MovieList/MovieList";
+import { filterMoviesResponse, getRandomMovie } from "../../util/Utils";
+import { fetchMovies } from "../../api/MovieDBcalls";
 
 
 const Home = () => {
     
-    const api_key = API_KEY.key;
-
-    const [movies, setMovies] = useState(); 
-    const [movie, setMovie] = useState();
-    const [moviePoster, setMoviePoster] = useState();
+    const [movies, setMovies] = useState<Array<string>>([]); 
+    const [movie, setMovie] = useState<string>();
 
     
-    const fetchMovieList = () => {
-        const url : string = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-
-        axios
-            .get(url)
-            .then(resp => {                
-                const movie_list = resp.data.results.map((movie : any) => [movie.title, movie.poster_path]);
-                setMovies(movie_list);
-            })
-            .catch(err => {
-                console.error(err);
-                return null;
-            })
-    }
-
-    const fetchRandomMovie = () => {
-        const random_id = Math.floor(Math.random() * (20));
-
-        const url : string = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-
-        axios
-            .get(url)
-            .then(resp => {                
-                setMovie(resp.data.results[random_id].title);
-                setMoviePoster(resp.data.results[random_id].poster_path);
-            })
-            .catch(err => {
-                console.error(err);
-                return null;
-            })
-    }
-
-    useEffect(fetchRandomMovie, []);
-    useEffect(fetchMovieList, []);
+    // Random Movie
+    useEffect(() => {
+        fetchMovies().then(resp => {
+            setMovie(getRandomMovie(filterMoviesResponse(resp)));
+        })
+    }, []);
+    
+    // Discory Movie List
+    useEffect(() => {
+        fetchMovies().then(resp => {
+            setMovies(filterMoviesResponse(resp));
+        })
+    }, []);
     
     return (
         <>
@@ -61,11 +37,11 @@ const Home = () => {
                 : <p>loading...</p>
             }
 
-            {/* Render a randomized movie */}
-            {movie && moviePoster ? 
+            {/* Render a randomized movie, placed in an array as that is what MovieLists expects */}
+            {movie ? 
                 <>
                     <h2>Here is a randomized movie!</h2>
-                    <MovieList movies={Array([movie, moviePoster])} />
+                    <MovieList movies={Array(movie)} /> 
                 </>
                 : <p>loading...</p>
             }
