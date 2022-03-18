@@ -15,10 +15,10 @@ site will be added as it is developed.
     -   Some CSS TBD
 
 -   Backend
-    -   database: mySQL
+    -   database: mongoDB
     -   Server side:
         -   TBD: node.js, flask, etc.
-        -   Node.js for now as i am follwing the fullstack course at:
+        -   Node.js/Express for now as i am follwing the fullstack course at:
             https://fullstackopen.com/en/
         -   (HOWEVER: i do kinda wanna tryout flask, so we will see down the
             line)
