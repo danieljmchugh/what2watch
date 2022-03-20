@@ -13,10 +13,10 @@ POST http://localhost:3001/api/notes
 content-type: application/json
 
 {
-    "content": "Test post"
+    "content": "I have the high ground"
 }
 ###
 
-DELETE  http://localhost:3001/api/notes/8c489cc5-5dc2-4508-889c-45274b79d1e6
+DELETE  http://localhost:3001/api/notes/623476c7f87d1c92b6d69e04
 
 ###

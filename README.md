@@ -42,4 +42,6 @@ site will be added as it is developed.
     -   [ ] Start work on adding styles to the components
     -   [ ] Update components to function with skeletal backend
 -   Backend
-    -   [ ] Create skeletal project structure
+    -   [x] Create skeletal project structure
+    -   [ ] Mess around with backend using demo notes app
+    
