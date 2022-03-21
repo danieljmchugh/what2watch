@@ -27,7 +27,7 @@ const Home = () => {
     
     return (
         <>
-            <h1>Welcome to WHAT2WATCH</h1>
+            <h1>Welcome To What2Watch!</h1>
             {/* Render a randomized movie, placed in an array as that is what MovieLists expects */}
             {movie ? 
                 <>

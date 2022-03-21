@@ -1,7 +1,7 @@
 GET http://localhost:3001/
 
 ###
-GET http://localhost:3001/api/notes
+GET http://localhost:3001/api/users
 
 ###
 
@@ -9,11 +9,12 @@ GET http://localhost:3001/api/notes/2
 
 ###
 
-POST http://localhost:3001/api/notes
+POST http://localhost:3001/api/login
 content-type: application/json
 
 {
-    "content": "I have the high ground"
+    "email": "test@test.com",
+    "password": "test"
 }
 ###
 

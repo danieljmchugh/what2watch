@@ -2,14 +2,20 @@ const config = require('./utils/config');
 const express = require('express');
 const app = express();  
 const cors = require('cors');
-const notesRouter = require('./controllers/notes');
-const middleware = require('./utils/middleware');
-const logger = require('./utils/logger');
 const mongoose = require('mongoose');
 
-logger.info('connecting to', config.MONGO_DB_URI);
+const notesRouter = require('./controllers/notes');
+const usersRouter = require('./controllers/users');
+const loginRouter = require('./controllers/login');
 
-mongoose.connect(config.MONGO_DB_URI)
+const middleware = require('./utils/middleware');
+const logger = require('./utils/logger');
+
+
+logger.info('connecting to', config.MONGO_DB_NOTES_URI);
+// logger.info('connecting to', config.MONGO_DB_USERS_URI);
+
+mongoose.connect(config.MONGO_DB_NOTES_URI)
     .then(() => {
         logger.info('connected to database');
     })
@@ -18,12 +24,15 @@ mongoose.connect(config.MONGO_DB_URI)
     });
 
 
+
 app.use(cors());
 app.use(express.static('build'));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-app.use('/api/notes', notesRouter); // sets '/api/notes' as base router the api calls
+app.use('/api/notes', notesRouter); 
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
