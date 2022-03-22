@@ -1,13 +1,29 @@
 import { useState } from 'react'; 
+import { login } from '../../services/login';
 
 const LogIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // const [user, setUser] = useState(null);
 
-    const handleLogin = (event : any) => {
+    const handleLogin = async (event : any) => {
         event.preventDefault();
-        console.log(`Logging in with email: ${email} and password: ${password}`);
+
+        try {
+            // const user = await login({email, password});
+            const user = ({email, password});
+            window.localStorage.setItem('loggedW2WUser', JSON.stringify(user));
+
+            // setUser(user);
+            setEmail('');
+            setPassword('');
+
+        
+    
+        } catch (error) {
+            alert('Wrong credentials');
+        }
     }
 
     return (

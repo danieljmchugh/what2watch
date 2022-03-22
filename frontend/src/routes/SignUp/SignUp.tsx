@@ -10,7 +10,7 @@ const SignUp = () => {
     const handleSignup = (event : any) => {
         event.preventDefault();
         
-        if (email != emailRepeat) {
+        if (email !== emailRepeat) {
             alert('Emails entered to not match!')
         }
         else {
