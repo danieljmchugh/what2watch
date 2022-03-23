@@ -12,7 +12,7 @@ usersRouter.get('/', async (request, response) => {
 
 /************************ POST ************************/
 usersRouter.post('/', async (request, response) => {
-    const {email, password} = request.body;
+    const {email, name, password} = request.body;
 
     // test for existing
     const existingUser = await User.findOne({ email });
@@ -26,8 +26,8 @@ usersRouter.post('/', async (request, response) => {
 
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(password, saltRounds);
-    const user = new User({email, passwordHash});
-
+    const user = new User({email, name, passwordHash});
+    // 
     const savedUser = user.save();
 
     response.status(201).json(savedUser);

@@ -5,14 +5,13 @@ const ProfileTab = ({user} : any) =>  {
     
     return (
         <Togglable buttonLable='Profile'>
-            {console.log('user in profiletab:', user)}
+            {console.log(user)}
             {
-                user    ?
-                    <p>User email: {user.email}</p>
+                user ?
+                    <p>Welcom {user.name}!</p>
                     :
                     <p>No user logged in</p>
             }
-            
         </Togglable>
     );
 }

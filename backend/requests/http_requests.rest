@@ -9,11 +9,12 @@ GET http://localhost:3001/api/notes/2
 
 ###
 
-POST http://localhost:3001/api/login
+POST http://localhost:3001/api/users
 content-type: application/json
 
 {
     "email": "test@test.com",
+    "name": "Daniel",
     "password": "test"
 }
 ###
