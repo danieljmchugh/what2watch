@@ -5,21 +5,23 @@ const LogIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [user, setUser] = useState(null);
+
 
     const handleLogin = async (event : any) => {
         event.preventDefault();
 
         try {
-            // const user = await login({email, password});
+
+            // NB! Commented out for testing without backend running! Dont forget to switch
+            // const user = await login({email, password});            
             const user = ({email, password});
+
             window.localStorage.setItem('loggedW2WUser', JSON.stringify(user));
 
-            // setUser(user);
+
             setEmail('');
             setPassword('');
 
-        
     
         } catch (error) {
             alert('Wrong credentials');
