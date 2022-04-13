@@ -1,45 +1,46 @@
 import { useState } from 'react'; 
 
-const SignUp = () => {
+const SignUp = ({
+    handleSubmit,
+    handleNameChange, 
+    handleEmailChange,
+    handleEmailRepeatChange,
+    handlePasswordChange,
+    name,
+    email,
+    emailRepeat, 
+    password } : any) => {
 
-    const [email, setEmail] = useState('');
-    const [emailRepeat, setEmailRepeat] = useState('');
-    const [password, setPassword] = useState('');
-    
 
-    const handleSignup = (event : any) => {
-        event.preventDefault();
-        
-        if (email !== emailRepeat) {
-            alert('Emails entered to not match!')
-        }
-        else {
-            console.log(`Signed up with email: ${email} and password: ${password}`);
-        }
-    }
 
     return (
         <>
             <h1>Sign Up</h1>
-            <form onSubmit={handleSignup}>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="Your name"
+                    autoFocus
+                    value={name}
+                    onChange={handleNameChange}
+                />
                 <input 
                     type="email" 
                     placeholder="email"
-                    autoFocus
                     value={email}
-                    onChange={({ target }) => setEmail(target.value)}
+                    onChange={handleEmailChange}
                 />
                 <input 
                     type="email" 
                     placeholder="re-enter email"
                     value={emailRepeat}
-                    onChange={({ target }) => setEmailRepeat(target.value)}
+                    onChange={handleEmailRepeatChange}
                 />
                 <input 
                     type="password" 
                     placeholder="password"
                     value={password}
-                    onChange={({ target }) => setPassword(target.value)}
+                    onChange={handlePasswordChange}
                 />
                 
                 <button type="submit">Sign Up</button>

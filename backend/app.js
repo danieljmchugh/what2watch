@@ -4,16 +4,15 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const notesRouter = require('./controllers/notes');
 const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
+const registerRouter = require('./controllers/register');
+const listsRouter = require('./controllers/lists');
 
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 
-
 logger.info('connecting to', config.MONGO_DB_NOTES_URI);
-// logger.info('connecting to', config.MONGO_DB_USERS_URI);
 
 mongoose.connect(config.MONGO_DB_NOTES_URI)
     .then(() => {
@@ -30,9 +29,11 @@ app.use(express.static('build'));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-app.use('/api/notes', notesRouter); 
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/register', registerRouter);
+
+app.use('/api/lists', listsRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

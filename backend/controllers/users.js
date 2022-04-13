@@ -1,40 +1,41 @@
 const usersRouter = require('express').Router();
-const bcrypt = require('bcrypt');
 const logger = require('../utils/logger');
+const utils = require('../utils/utils');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
-/************************ GET ************************/ 
+/************************ GET ALL ************************/ 
+
 usersRouter.get('/', async (request, response) => {
-    const users = await User.find({});
-    response.json(users);
-});
+    const body = request.body;
+    const token = utils.getToken(request);
 
-/************************ POST ************************/
-usersRouter.post('/', async (request, response) => {
-    const {email, name, password} = request.body;
-
-    // test for existing
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-        return response.status(400).json({error: "User with that email already exists"});
+    try {
+        const decodedToken = jwt.verify(token, process.env.SECRET);
+        const user = await User.findById(decodedToken.id);
+        
+        if(!user) { // TODO: is this still needed?
+            return response.status(404).json({error: "Can't post with unauthenticated user"}); 
+        }
+        response.json(user);
+        
+    } catch (error) {
+        logger.error(error);
+        response.status(401).json({ error: 'token missing or invalid' });
     }
-
     
-    // TODO: Other tests: strong enough password, etc.
-
-
-    const saltRounds = 10;
-    const passwordHash = await bcrypt.hash(password, saltRounds);
-    const user = new User({email, name, passwordHash});
-    // 
-    const savedUser = user.save();
-
-    response.status(201).json(savedUser);
 });
 
-/************************ DELETE ************************/ 
-
-
+/************************ DELETE ************************/
+usersRouter.delete('/:id', (request, response) => {
+    User.findByIdAndDelete(request.params.id)
+        .then(result => {
+            response.status(204).end();
+        })
+        .catch(error =>{
+            next(error);
+        });
+})
 
 module.exports = usersRouter;

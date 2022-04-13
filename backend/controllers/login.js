@@ -2,15 +2,15 @@ const loginRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const { use } = require('./users');
+
 
 loginRouter.post('/', async (request, response) => {
-    const {email, password} = request.body;
+    const {emailLogin, passwordLogin} = request.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: emailLogin });
     const passwordCorrect = (user === null) 
         ? false
-        : await bcrypt.compare(password, user.passwordHash);
+        : await bcrypt.compare(passwordLogin, user.passwordHash);
     
     // Check credentials
     if (!(user && passwordCorrect)) {

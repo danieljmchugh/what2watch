@@ -7,7 +7,7 @@ import About from "../../routes/About/About";
 import ProfileTab from "../ProfileTab/ProfileTab";
 
 
-const Navbar = ({user} : any) => {
+const Navbar = ({user, onLogout} : any) => {
     return (
         <div>
             {/* Conditional render based on the browser URL */}
@@ -18,7 +18,9 @@ const Navbar = ({user} : any) => {
             <Link to={"/login"}> Log In </Link>
             <Link to={"/about"}> About Us </Link>
                 
-            <ProfileTab user={user}/>
+            <ProfileTab 
+                user={user} 
+                onLogout={onLogout}/>
 
             
         </div>

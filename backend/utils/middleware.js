@@ -5,9 +5,9 @@ const requestLogger = (request, response, next) => {
     logger.info(new Date());
     logger.info('Method: ', request.method);
     logger.info('Path: ', request.path);
+    // TODO: log content-type
     logger.info('Body: ', request.body);
     logger.info('---');
-
     next();
 }
 

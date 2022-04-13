@@ -12,19 +12,23 @@ const userSchema = new mongoose.Schema({
     passwordHash: {
         type: String,
         required: true
-    }
+    },
+    lists: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'List'
+        }
+    ]
 });
 
-// userSchema.set('toJSON', {
-//     transform: (document, returnedObject) =>{
-//         returnedObject.id = returnedObject._id.toString();
-//         delete returnedObject._id;
-//         delete returnedObject.__v;
-        
-//         // TODO: read about user password storage best practice
-//         delete returnedObject.passwordHash;
-//     }
-// });
+userSchema.set('toJSON', {
+    transform: (document, returnedObject) =>{
+        returnedObject.id = returnedObject._id.toString();
+        delete returnedObject._id;
+        delete returnedObject.__v;
+        delete returnedObject.passwordHash;
+    }
+})
 
 const User = mongoose.model('User', userSchema);
 

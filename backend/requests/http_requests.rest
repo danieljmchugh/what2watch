@@ -1,24 +1,29 @@
-GET http://localhost:3001/
-
-###
+### Grab all users
 GET http://localhost:3001/api/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJuYW1lIjoiRGFuaWVsIiwiaWQiOiI2MjRlYjkyN2ZiNDZmMWFmYTI3NTYwZmQiLCJpYXQiOjE2NDkzMjYzODN9.eKlMN3XV70tYYe2BYztr3J4pVgcPf6vgLROxholBZLs
 
-###
+### Grab all lists
+GET http://localhost:3001/api/lists
 
-GET http://localhost:3001/api/notes/2
 
-###
-
-POST http://localhost:3001/api/users
+### Log in a user
+POST http://localhost:3001/api/login
 content-type: application/json
 
 {
-    "email": "test@test.com",
-    "name": "Daniel",
-    "password": "test"
+    "emailLogin": "test@test.com",
+    "passwordLogin": "test"
 }
-###
+### Delete a user - Admin
+DELETE http://localhost:3001/api/users/6255a6d356242a1855d99bcb
 
-DELETE  http://localhost:3001/api/notes/623476c7f87d1c92b6d69e04
 
-###
+### Post a list for user Daniel
+POST http://localhost:3001/api/lists
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJuYW1lIjoiRGFuaWVsIiwiaWQiOiI2MjRlYjkyN2ZiNDZmMWFmYTI3NTYwZmQiLCJpYXQiOjE2NDkzMjYzODN9.eKlMN3XV70tYYe2BYztr3J4pVgcPf6vgLROxholBZLs
+
+{
+    "title": "My Second List",
+    "content": [760868,568124,414906]
+}

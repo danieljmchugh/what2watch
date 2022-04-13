@@ -1,17 +1,21 @@
 import Togglable from "../Togglable/Togglable";
 
 
-const ProfileTab = ({user} : any) =>  {
-    
+const ProfileTab = ({user, onLogout} : any) =>  {
+
     return (
         <Togglable buttonLable='Profile'>
-            {console.log(user)}
             {
                 user ?
-                    <p>Welcom {user.name}!</p>
+                    <>
+                        <p>Welcome {user.name}!</p>
+                        <button onClick={onLogout}>Logout</button>
+                    </>
+                    
                     :
                     <p>No user logged in</p>
             }
+            
         </Togglable>
     );
 }
