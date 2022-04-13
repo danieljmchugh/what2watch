@@ -40,8 +40,15 @@ site will be added as it is developed.
     -   [x] Create skeletal home,login and signup
     -   [x] Mess around with tMDB api
     -   [ ] Start work on adding styles to the components
-    -   [ ] Update components to function with skeletal backend
+    -   [x] Update components to function with skeletal backend
+    -   [x] Added login/register functionality
+    -   [ ] Added inter-user functionalities
+    -   [ ] Added movie list functionalities
+
 -   Backend
     -   [x] Create skeletal project structure
-    -   [ ] Mess around with backend using demo notes app
+    -   [x] Mess around with backend using demo notes app
+    -   [x] Added login/register functionality
+    -   [ ] Added inter-user functionalities
+    -   [ ] Added movie list functionalities
     
