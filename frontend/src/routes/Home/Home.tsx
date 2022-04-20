@@ -27,7 +27,6 @@ const Home = ({user} : any) => {
         const randomId = list_ids[Math.floor(Math.random() * list_ids.length)];
         const list = await getListContents(randomId);
         
-        console.log(list);
         setUserList(list)
     }
 
@@ -35,7 +34,6 @@ const Home = ({user} : any) => {
 
         const movie_ids = userList.content;
         const movies = Promise.all(movie_ids.map( async (id : any) => await fetchMovieById(id)));
-        // const movies = await fetchMovieById(movie_ids[0]);
 
         return movies;
     }
@@ -55,7 +53,6 @@ const Home = ({user} : any) => {
         if (!userList) return 
 
         getMoviesFromList().then((movies) => {
-            // console.log(movies);
             setRandomUserMovies(movies)
         }).catch(error => console.error(error))
 

@@ -24,7 +24,7 @@ export const getUserListIds = async () => {
     }
 
     const request = await axios.get('api/users/', config);
-    console.log(request.data.lists);
+    
     return request.data.lists;
 };
 

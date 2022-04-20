@@ -12,9 +12,9 @@ const listsRouter = require('./controllers/lists');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 
-logger.info('connecting to', config.MONGO_DB_NOTES_URI);
+logger.info('connecting to', config.MONGO_DB_URI);
 
-mongoose.connect(config.MONGO_DB_NOTES_URI)
+mongoose.connect(config.MONGO_DB_URI)
     .then(() => {
         logger.info('connected to database');
     })

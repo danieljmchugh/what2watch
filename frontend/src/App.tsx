@@ -7,6 +7,7 @@ import Home from './routes/Home/Home';
 import SignUp from "./routes/SignUp/SignUp";
 import LogIn from "./routes/LogIn/LogIn";
 import About from "./routes/About/About";
+import MyLists from "./routes/MyLists/MyLists"
 import { login, register } from './services/loginServices';
 
 
@@ -83,7 +84,8 @@ const App = () => {
             <Navbar 
                 user={user}
                 onLogout={handleLogout}
-                />
+                />  {/* <Link to={"/signup"}> Sign Up </Link> */}
+                {/* <Link to={"/login"}> Log In </Link> */}
             
             <Routes>
                 <Route path="/" element={<Home user={user}/>} />   
@@ -104,7 +106,7 @@ const App = () => {
                            password={passwordLogin}
                            handleEmailChange={({ target } : any) => setEmailLogin(target.value)}
                            handlePasswordChange={({ target } : any) => setPasswordLogin(target.value)}/>} />
-
+                <Route path="/mylists" element={<MyLists />} />
                 <Route path="/about" element={<About />} />
             </Routes>
             

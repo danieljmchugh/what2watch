@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Togglable from "../Togglable/Togglable";
 
 
@@ -9,11 +10,16 @@ const ProfileTab = ({user, onLogout} : any) =>  {
                 user ?
                     <>
                         <p>Welcome {user.name}!</p>
+                        <Link to={"/mylists"}>My Lists</Link>
+                        
                         <button onClick={onLogout}>Logout</button>
                     </>
-                    
                     :
-                    <p>No user logged in</p>
+                    <>
+                        <Link to={"/login"}> Log In </Link>
+                        <Link to={"/signup"}> Sign Up </Link>
+                    </>
+                    
             }
             
         </Togglable>
