@@ -4,7 +4,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { filterMoviesResponse } from "../../util/Utils";
 import { fetchDiscoverMovies, fetchMovieById } from "../../services/movieServices";
 import { getUserListIds, getListContents } from "../../services/listServices";
-
+import { StyledHome } from "./Home.styled";
 
 
 const Home = ({user} : any) => {
@@ -59,7 +59,7 @@ const Home = ({user} : any) => {
     }, [userList])
 
     return (
-        <>
+        <StyledHome>
             <h1>Welcome To What2Watch!</h1>
             {user ?
                 <>
@@ -78,7 +78,7 @@ const Home = ({user} : any) => {
                 <MovieList title={"Discover more movies!"} movies={discoverMovies} />
                 : <p>loading...</p>
             }
-        </>
+        </StyledHome>
     );
   
     

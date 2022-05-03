@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 const Togglable = (props : any) =>  {
     
@@ -15,7 +16,8 @@ const Togglable = (props : any) =>  {
     return (
         <>
             <div style={hideWhenVisible}>
-                <button onClick={toggleVisible}>{props.buttonLable}</button>
+                <button onClick={toggleVisible}></button>
+                
             </div>
             
             <div style={showWhenVisible}>

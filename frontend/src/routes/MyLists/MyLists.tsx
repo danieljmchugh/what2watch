@@ -1,9 +1,11 @@
+import { v4 as uuid } from 'uuid';
+
 import { getUserListIds, getListContents } from "../../services/listServices";
 import { fetchMovieById } from "../../services/movieServices";
 import { filterMoviesResponse } from "../../util/Utils";
 import { useState, useEffect } from "react";
 import MovieList from "../../components/MovieList/MovieList";
-import { v4 as uuid } from 'uuid';
+import { StyledMyLists } from './MyLists.styled';
 
 
 const MyLists = () => {
@@ -43,7 +45,7 @@ const MyLists = () => {
     }, [userLists])
 
     return (
-        <>
+        <StyledMyLists>
 
             <h2>Create New List</h2>
             <form></form>
@@ -62,11 +64,10 @@ const MyLists = () => {
                     })}
                 </ul>
                 :
-                <>goodbye</>
-
+                <></>
             }
 
-        </>
+        </StyledMyLists>
     );
 }
 
