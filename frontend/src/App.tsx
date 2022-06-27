@@ -13,11 +13,12 @@ import { login, register } from './services/loginServices';
 import { theme } from './Theme'
 
 const App = () => {
+    /* Global user */
     const [user, setUser] = useState(null);
-    
+    /* Login details */
     const [emailLogin, setEmailLogin] = useState('');
     const [passwordLogin, setPasswordLogin] = useState('');
-    
+    /* Signup details */
     const [nameSignup, setNameSignup] = useState('');
     const [emailSignup, setEmailSignup] = useState('');
     const [emailSignupRepeat, setEmailSignupRepeat] = useState('');
