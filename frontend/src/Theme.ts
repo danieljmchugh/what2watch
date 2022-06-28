@@ -13,5 +13,4 @@ export const theme = {
         tertiary: '#0d131f',
         text: '#FFFFFF'
     }
-
 }

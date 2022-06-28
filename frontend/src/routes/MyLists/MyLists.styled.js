@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledMyLists = styled.div`
     background-color: ${({theme}) => theme.colors.primary};
+    height:100vh; /* 100% of the viewport height */
     padding: 10px;
     
 
