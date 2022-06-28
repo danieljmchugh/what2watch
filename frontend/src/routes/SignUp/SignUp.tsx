@@ -1,3 +1,5 @@
+import { StyledSignUp } from './SignUp.styled'
+
 const SignUp = ({
     handleSubmit,
     handleNameChange, 
@@ -9,10 +11,8 @@ const SignUp = ({
     emailRepeat, 
     password } : any) => {
 
-
-
     return (
-        <>
+        <StyledSignUp>
             <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -43,7 +43,7 @@ const SignUp = ({
                 
                 <button type="submit">Sign Up</button>
             </form>
-        </>
+        </StyledSignUp>
     );
 }
 

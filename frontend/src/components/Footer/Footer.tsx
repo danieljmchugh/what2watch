@@ -3,7 +3,7 @@ import { StyledFooter } from "./Footer.styled";
 const Footer = () => {
     return (
         <StyledFooter>  
-            <p>Footer</p>
+            <h1>Footer</h1>
         </StyledFooter>
     );
 }

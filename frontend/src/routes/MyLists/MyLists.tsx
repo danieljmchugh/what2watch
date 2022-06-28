@@ -46,13 +46,9 @@ const MyLists = () => {
 
     return (
         <StyledMyLists>
-
             <h2>Create New List</h2>
-            <form></form>
+            {/*<form></form>*/}
             
-            
-            
-            <h2>My Lists</h2>
             {userLists && userMovies ?
                 <ul>
                     {userLists.map((list : any, id : any) => {
@@ -60,7 +56,7 @@ const MyLists = () => {
                             <li key={uuid()}>
                                 <MovieList title={list.title} movies={userMovies[id]}/>
                             </li>
-                            )
+                        )
                     })}
                 </ul>
                 :

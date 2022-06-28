@@ -8,11 +8,10 @@ import styled from "styled-components"
 
 export const theme = {
     colors: {
-        header: '#222831',
-        body: '#393E46',
-        footer: '#222831',
-        primary: '#00ADB5',
-        secondary: '#EEEEEE'
+        primary: '#1b263b',
+        secondary: '#0d1b2a',
+        tertiary: '#0d131f',
+        text: '#FFFFFF'
     }
 
 }

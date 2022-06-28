@@ -4,15 +4,14 @@ import styled from "styled-components"
 export const StyledMovieList = styled.div`
 
     background-color: ${({theme}) => theme.colors.body};
-    
-    
 
-    ul {  
+    ul {
+        margin: 0;
+
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        background-color: ${({theme}) => theme.colors.primary};;
-
-        list-style-type: none;
+        list-style-type: none;        
+        background-color: ${({theme}) => theme.colors.primary};
     }
 ` 

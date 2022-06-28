@@ -1,3 +1,4 @@
+import { StyledLogIn } from './LogIn.styled'
 
 const LogIn = ({
     handleSubmit, 
@@ -7,7 +8,7 @@ const LogIn = ({
     password } : any) => {
 
     return (
-        <>
+        <StyledLogIn>
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -27,7 +28,7 @@ const LogIn = ({
                 
                 <button type="submit">Login</button>
             </form>
-        </>
+        </StyledLogIn>
     );
 }
 

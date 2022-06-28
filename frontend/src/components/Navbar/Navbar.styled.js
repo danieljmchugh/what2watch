@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const StyledNavbar = styled.nav`
-    // display: flex;
-    // background-color: ${({theme}) => theme.colors.header};
-    
+export const StyledNavbar = styled.nav`    
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333333;
+        background-color: ${({theme}) => theme.colors.secondary};
     }
 
     li {
@@ -18,19 +15,19 @@ export const StyledNavbar = styled.nav`
     }
 
     li:hover {
-        background-color: #111111;
+        background-color: ${({theme}) => theme.colors.tertiary};
     }
 
-    /* 
     ul:last-child {
         margin-left: auto;
-    } */ 
+    }
+
 `
 
 export const StyledLink = styled(Link)`
     display: block;
-    color: white;
+    color: ${({theme}) => theme.colors.text};
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration: none;      /* Removes link underline */
 `
