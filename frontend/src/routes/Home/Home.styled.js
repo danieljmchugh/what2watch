@@ -10,7 +10,4 @@ export const StyledHome = styled.div`
         margin: 0;
     }
     
-    h1, h2, p {
-        color: ${({theme}) => theme.colors.text}
-    }   
 `

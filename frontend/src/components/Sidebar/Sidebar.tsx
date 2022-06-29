@@ -1,13 +1,12 @@
 import { slide as Bar } from "react-burger-menu";
 import { StyledSidebar } from "./Sidebar.styled";
+import ProfileTab from "../ProfileTab/ProfileTab";
 
-const Sidebar = () => {
+const Sidebar = ({user, onLogout} : any) => {
     return (
         <StyledSidebar>
             <Bar right>
-                <a href="">Test 1</a>
-                <a href="">Test 2</a>
-                <a href="">Test 3</a>
+                <ProfileTab user={user} onLogout={onLogout}/>
             </Bar>
         </StyledSidebar>
     );

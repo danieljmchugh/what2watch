@@ -13,21 +13,4 @@ export const StyledNavbar = styled.nav`
     li {
         float: left;
     }
-
-    li:hover {
-        background-color: ${({theme}) => theme.colors.tertiary};
-    }
-
-    ul:last-child {
-        margin-left: auto;
-    }
-
-`
-
-export const StyledLink = styled(Link)`
-    display: block;
-    color: ${({theme}) => theme.colors.text};
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;      /* Removes link underline */
 `

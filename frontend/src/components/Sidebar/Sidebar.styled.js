@@ -10,10 +10,10 @@ export const StyledSidebar = styled.div`
     /* Position and sizing of burger button */
     .bm-burger-button {
       position: absolute;
-      width: 36px;
-      height: 30px;
+      width: 24px;
+      height: 20px;
       right: 36px;
-      top: 25px;
+      top: 15px;
     }
 
     /* Color/shape of burger icon bars */
@@ -60,7 +60,7 @@ export const StyledSidebar = styled.div`
 
     /* Individual item */
     .bm-item {
-      display: inline-block;
+      // display: inline-block;
       display: block;
       color: ${({theme}) => theme.colors.text};
       text-align: center;

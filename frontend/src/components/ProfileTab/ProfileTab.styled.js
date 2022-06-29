@@ -1,5 +1,3 @@
 import styled from 'styled-components'
 
-export const StyledProfileTab = styled.button`
-
-`
+export const StyledProfileTab = styled.div``

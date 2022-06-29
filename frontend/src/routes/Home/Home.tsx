@@ -14,7 +14,7 @@ const Home = ({user} : any) => {
     const [discoverMovies, setDiscoverMovies] = useState<Array<string>>([]); 
     
 
-    // Discory Movie List
+    // Discovery Movie List
     useEffect(() => {
         fetchDiscoverMovies().then(resp => {
             setDiscoverMovies(filterMoviesResponse(resp));

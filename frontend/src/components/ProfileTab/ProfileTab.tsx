@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom"
 import { StyledProfileTab } from "./ProfileTab.styled";
+import { StyledLink } from "../../GlobalStyle"
 
 const ProfileTab = ({user, onLogout} : any) =>  {
     return (
         <StyledProfileTab>
             {
                 user ?
-                    <ul>
+                    <div>
                         <p>Welcome {user.name}!</p>
-                        <Link to={"/mylists"}>My Lists</Link>
-                        
+                        <StyledLink to={"/mylists"}>My Lists</StyledLink>
                         <button onClick={onLogout}>Logout</button>
-                    </ul>
+                    </div>
                     :
-                    <ul>
-                        <Link to={"/login"}> Log In </Link>
-                        <Link to={"/signup"}> Sign Up </Link>
-                    </ul>
+                    <div>
+                        <StyledLink to={"/login"}> Log In </StyledLink>
+                        <StyledLink to={"/signup"}> Sign Up </StyledLink>
+                    </div>
                     
             }
         </StyledProfileTab>  

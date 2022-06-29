@@ -10,7 +10,8 @@ import LogIn from "./routes/LogIn/LogIn";
 import About from "./routes/About/About";
 import MyLists from "./routes/MyLists/MyLists"
 import { login, register } from './services/loginServices';
-import { theme } from './Theme'
+import { theme } from './Theme';
+import { GlobalStyle } from './GlobalStyle'
 
 const App = () => {
     /* Global user */
@@ -83,37 +84,38 @@ const App = () => {
 
 
     return (
-        <ThemeProvider theme={theme}>          
-                <Router>
-                    <Navbar user={user} onLogout={handleLogout}/>  
+        <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Router>
+                <Navbar user={user} onLogout={handleLogout}/>  
+                
+                <Routes>
+                    <Route path="/" element={<Home user={user}/>} />   
                     
-                    <Routes>
-                        <Route path="/" element={<Home user={user}/>} />   
-                        
-                        <Route path="/signup" element={
-                            <SignUp handleSubmit={handleSignup}
-                                    name={nameSignup}
-                                    email={emailSignup}
-                                    emailRepeat={emailSignupRepeat}
-                                    password={passwordSignup}
-                                    handleNameChange={({ target } : any) => setNameSignup(target.value)}
-                                    handleEmailChange={({ target } : any) => setEmailSignup(target.value)}
-                                    handleEmailRepeatChange={({ target } : any) => setEmailSignupRepeat(target.value)}
-                                    handlePasswordChange={({ target } : any) => setPasswordSignup(target.value)}/>} />
-                        
-                        <Route path="/login" element={
-                            <LogIn handleSubmit={handleLogin}
-                                email={emailLogin}
-                                password={passwordLogin}
-                                handleEmailChange={({ target } : any) => setEmailLogin(target.value)}
-                                handlePasswordChange={({ target } : any) => setPasswordLogin(target.value)}/>} />
-                        <Route path="/mylists" element={<MyLists />} />
-                        
-                        <Route path="/about" element={<About />} />
-                    </Routes>
+                    <Route path="/signup" element={
+                        <SignUp handleSubmit={handleSignup}
+                                name={nameSignup}
+                                email={emailSignup}
+                                emailRepeat={emailSignupRepeat}
+                                password={passwordSignup}
+                                handleNameChange={({ target } : any) => setNameSignup(target.value)}
+                                handleEmailChange={({ target } : any) => setEmailSignup(target.value)}
+                                handleEmailRepeatChange={({ target } : any) => setEmailSignupRepeat(target.value)}
+                                handlePasswordChange={({ target } : any) => setPasswordSignup(target.value)}/>} />
                     
-                    <Footer />
-                </Router>
+                    <Route path="/login" element={
+                        <LogIn handleSubmit={handleLogin}
+                            email={emailLogin}
+                            password={passwordLogin}
+                            handleEmailChange={({ target } : any) => setEmailLogin(target.value)}
+                            handlePasswordChange={({ target } : any) => setPasswordLogin(target.value)}/>} />
+                    <Route path="/mylists" element={<MyLists />} />
+                    
+                    <Route path="/about" element={<About />} />
+                </Routes>
+                
+                <Footer />
+            </Router>
         </ThemeProvider>
     );
 }
