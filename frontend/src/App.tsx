@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import  { ThemeProvider } from 'styled-components'
 
 import Navbar from './components/Navbar/Navbar';
+import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 import Footer from './components/Footer/Footer';
 import Home from './routes/Home/Home';
 import SignUp from "./routes/SignUp/SignUp";
@@ -87,11 +88,13 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Router>
-                <Navbar user={user} onLogout={handleLogout}/>  
-                
+                <Navbar user={user} onLogout={handleLogout}/>
                 <Routes>
-                    <Route path="/" element={<Home user={user}/>} />   
-                    
+                    <Route path="/" element={<Home user={user}/>} />
+                    <Route element={<ProtectedRoutes user={user}/>}> 
+                        <Route path="/mylists" element={<MyLists />} />
+                    </Route>
+
                     <Route path="/signup" element={
                         <SignUp handleSubmit={handleSignup}
                                 name={nameSignup}
@@ -109,12 +112,11 @@ const App = () => {
                             password={passwordLogin}
                             handleEmailChange={({ target } : any) => setEmailLogin(target.value)}
                             handlePasswordChange={({ target } : any) => setPasswordLogin(target.value)}/>} />
-                    <Route path="/mylists" element={<MyLists />} />
+                    
                     
                     <Route path="/about" element={<About />} />
                 </Routes>
-                
-                <Footer />
+                {/*<Footer />*/}
             </Router>
         </ThemeProvider>
     );

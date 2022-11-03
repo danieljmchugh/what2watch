@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const GlobalStyle = createGlobalStyle`
-	h1, h2, h3, p {
+	body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    h1, h2, h3, p {
         color: ${({theme}) => theme.colors.text}
     }
 
