@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import  { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from './GlobalStyle'
+import { theme } from './Theme';
 
 import Navbar from './components/Navbar/Navbar';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 import Footer from './components/Footer/Footer';
-import Home from './routes/Home/Home';
+import LandingPage from './routes/LandingPage/LandingPage';
 import SignUp from "./routes/SignUp/SignUp";
 import LogIn from "./routes/LogIn/LogIn";
 import About from "./routes/About/About";
 import MyLists from "./routes/MyLists/MyLists"
 import { login, register } from './services/loginServices';
-import { theme } from './Theme';
-import { GlobalStyle } from './GlobalStyle'
 
 const App = () => {
     /* Global user */
@@ -33,7 +33,6 @@ const App = () => {
             const user = await login({emailLogin, passwordLogin});            
             
             window.localStorage.setItem('loggedW2WUser', JSON.stringify(user));
-
             setUser(user);
             setEmailLogin('');
             setPasswordLogin('');
@@ -83,14 +82,13 @@ const App = () => {
 
 
 
-
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Router>
                 <Navbar user={user} onLogout={handleLogout}/>
                 <Routes>
-                    <Route path="/" element={<Home user={user}/>} />
+                    <Route path="/" element={<LandingPage user={user}/>} />
                     <Route element={<ProtectedRoutes user={user}/>}> 
                         <Route path="/mylists" element={<MyLists />} />
                     </Route>
