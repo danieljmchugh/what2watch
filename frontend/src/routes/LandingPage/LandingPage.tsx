@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 
 import MovieList from "../../components/MovieList/MovieList";
 import { filterMoviesResponse } from "../../util/Utils";
-import { fetchDiscoverMovies } from "../../services/movieServices";
+import { fetchRecentMovies } from "../../services/movieServices";
 import { getUserListIds,  } from "../../services/listServices";
 import { StyledLandingPage } from './LandingPage.styled';
 
 
 const LandingPage = ({user} : any) => {
-    const [discoverMovies, setDiscoverMovies] = useState<Array<string>>([]); 
+    const [recentMovies, setRecentMovies] = useState<Array<string>>([]); 
     
-    // Discovery Movie List
+    // Fetch recent movies
     useEffect(() => {
-        fetchDiscoverMovies().then(resp => {
-            setDiscoverMovies(filterMoviesResponse(resp));
+        fetchRecentMovies().then(resp => {
+            setRecentMovies(filterMoviesResponse(resp));
         })
     }, []);
    
@@ -21,11 +21,14 @@ const LandingPage = ({user} : any) => {
     return (
         <StyledLandingPage>
             <h1>Welcome To What2Watch!</h1>
-            <img src="https://yc.cldmlk.com/1t5ej9g3h321ae8wvt5fz2gz64/1671799287229_TheaterWebsiteCarousel33.png" alt="Banner" />
-            {/*{discoverMovies ? 
-                <MovieList title={"Discover more movies!"} movies={discoverMovies} />
+            <img 
+                id="banner" 
+                src="https://thumbs.dreamstime.com/b/blue-dark-background-wide-banner-design-template-digital-illustration-164323178.jpg" 
+                alt="Banner" />
+            {recentMovies ? 
+                <MovieList title={"Recent Movie Releases"} movies={recentMovies} />
                 : <p>loading...</p>
-            }*/}
+            }
         </StyledLandingPage>
     );
   

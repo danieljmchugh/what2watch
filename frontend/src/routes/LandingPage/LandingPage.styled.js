@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
 export const StyledLandingPage = styled.div`
-    h1 {
+    h1, h2 {
         padding: 10px;
     }
     
-    img {
-        width: "100%";
+    #banner {
+        width: 100%;
+        height: 300px;
     }
+
 `

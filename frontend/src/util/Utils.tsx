@@ -1,5 +1,5 @@
 export const filterMoviesResponse = (movies : any) => {
-    return movies.map((movie : any) => ([movie.title, movie.poster_path, movie.id]));
+    return movies.map((movie : any) => ([movie.title, movie.poster_path, movie.id, movie.overview, movie.release_date, movie.tagline, movie.original_language]));
 };
 
 export const getRandomMovie = (movies : Array<any>) => {

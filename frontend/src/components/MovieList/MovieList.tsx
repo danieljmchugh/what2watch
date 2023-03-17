@@ -10,7 +10,15 @@ const MovieList = ({title, movies} : any) =>  {
             <h2>{title}</h2>
             <ul>
                 {movies.map((movie : any) => 
-                    <MovieCard title={movie[0]} poster_path={movie[1]} id={movie[2]} key={uuid()}/>
+                    <MovieCard 
+                        title={movie[0]} 
+                        poster_path={movie[1]} 
+                        id={movie[2]} 
+                        overview={movie[3]} 
+                        release_date={movie[4]} 
+                        lagline={movie[5]} 
+                        original_language={movie[6]}
+                        key={uuid()}/>
                 )}
             </ul>
         </StyledMovieList>

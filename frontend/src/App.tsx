@@ -51,7 +51,6 @@ const App = () => {
         }
         
         try {
-            
             const user = await register({emailSignup, nameSignup, passwordSignup})
             window.localStorage.setItem('loggedW2WUser', JSON.stringify(user));
 
